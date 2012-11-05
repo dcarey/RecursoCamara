@@ -43,6 +43,7 @@ public class CameraActivity extends Activity {
 		public void onClick(View v) {
 			preview.camera.startPreview();
 			
+			
 		}
 	});
 
