@@ -6,10 +6,7 @@ import java.util.List;
 
 public class ResourceConnector implements IResource 
 {
-<<<<<<< HEAD
-=======
 	CameraActivity CameraAct;
->>>>>>> 8bf7a211651482cc529b6ee81a255945235032bf
 	boolean availability = true;
 	int id = 0;
 	List<IConsumptionObs> observers = new ArrayList<IConsumptionObs>();
