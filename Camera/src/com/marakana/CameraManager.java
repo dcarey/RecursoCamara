@@ -2,7 +2,7 @@ package com.marakana;
 
 public class CameraManager
 {
-	public CaptureManager cm;
+	public CaptureManager CaptureMan;
 	//public IConsumptionManager co;
 
 }

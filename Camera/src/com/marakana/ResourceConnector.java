@@ -1,11 +1,15 @@
 package com.marakana;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ResourceConnector implements IResource 
 {
-	
-	CameraManager cm;
-	boolean aviability = true;
+	CameraManager CameraMan;
+	boolean availability = true;
 	int id = 0;
+	List<IConsumptionObs> observers = new ArrayList<IConsumptionObs>();
+
 	
 	public void sendImage()
 	{
@@ -20,7 +24,7 @@ public class ResourceConnector implements IResource
 	
 
 	public boolean isAvailable() {
-		return aviability;
+		return availability;
 	}
 
 	public void cancelConsumption() {
@@ -43,7 +47,7 @@ public class ResourceConnector implements IResource
 	}
 
 	public void setObserver(IConsumptionObs observer) {
-		// TODO Auto-generated method stub
+		observers.add(observer);
 		
 	}
 
