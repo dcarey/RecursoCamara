@@ -5,10 +5,10 @@ import java.util.List;
 
 public class ResourceConnector implements IResource 
 {
-	CameraManager CameraMan;
 	boolean availability = true;
 	int id = 0;
 	List<IConsumptionObs> observers = new ArrayList<IConsumptionObs>();
+	CameraActivity ca = new CameraActivity();
 
 	
 	public void sendImage()
