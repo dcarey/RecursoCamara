@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.crypto.Cipher;
+
 public class ResourceConnector implements IResource 
 {
 	CameraActivity CameraAct;
@@ -35,8 +37,10 @@ public class ResourceConnector implements IResource
 	}
 
 	public boolean receiveAction(int i, String[] s) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		byte[] data = CameraAct.preview.getFoto();
+		notifyAllObservers(data);
+		return true;
 	}
 
 	public int getStatus() {

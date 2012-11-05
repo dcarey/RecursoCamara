@@ -14,7 +14,13 @@ class Preview extends SurfaceView implements SurfaceHolder.Callback { // <1>
 
   SurfaceHolder mHolder;  // <2>
   public Camera camera; // <3>
+  byte[] foto;
 
+  public byte[] getFoto()
+  {
+	  return foto;
+  }
+  
   Preview(Context context) {
     super(context);
 
@@ -38,6 +44,7 @@ class Preview extends SurfaceView implements SurfaceHolder.Callback { // <1>
         public void onPreviewFrame(byte[] data, Camera camera) {  // <11>
           Log.d(TAG, "onPreviewFrame called at: " + System.currentTimeMillis());
           Preview.this.invalidate();  // <12>
+          foto = data;
         }
       });
     } catch (IOException e) { // <13>

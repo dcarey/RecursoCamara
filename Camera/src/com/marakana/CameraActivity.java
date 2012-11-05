@@ -20,8 +20,15 @@ public class CameraActivity extends Activity {
   Preview preview; // <1>
   Button buttonClick; // <2>
   Button boton2;
-
+  byte[] foto;
+  
   /** Called when the activity is first created. */
+  
+  public byte[] getFoto()
+  {
+	  return foto;
+  }
+  
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -70,6 +77,7 @@ public class CameraActivity extends Activity {
       FileOutputStream outStream = null;
       try {
         // Write to SD Card
+    	foto = data;
         outStream = new FileOutputStream(String.format("/sdcard/%d.jpg",
             System.currentTimeMillis())); // <9>
         outStream.write(data);
