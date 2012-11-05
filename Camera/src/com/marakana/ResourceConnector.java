@@ -5,6 +5,7 @@ public class ResourceConnector implements IResource
 	
 	CameraManager cm;
 	boolean aviability = true;
+	int id = 0;
 	
 	public void sendImage()
 	{
@@ -38,8 +39,7 @@ public class ResourceConnector implements IResource
 	}
 
 	public void setId(int i) {
-		// TODO Auto-generated method stub
-		
+		id = i;
 	}
 
 	public void setObserver(IConsumptionObs observer) {
