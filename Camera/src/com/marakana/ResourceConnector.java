@@ -1,29 +1,23 @@
 package com.marakana;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.io.File;
+import java.io.FileInputStream;
 
-import javax.crypto.Cipher;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+
 
 public class ResourceConnector implements IResource 
 {
-	CameraActivity CameraAct;
+	CameraActivity CameraAct = new CameraActivity();
 	boolean availability = true;
 	int id = 0;
-	List<IConsumptionObs> observers = new ArrayList<IConsumptionObs>();
-	CameraActivity ca = new CameraActivity();
+
+	IConsumptionObs observer;
 
 	
-	void notifyAllObservers(byte[] data) {
-		
-    	Iterator<IConsumptionObs> it= observers.iterator();
-
-        while(it.hasNext())
-        {
-        	CameraObserver o = (CameraObserver)it.next();
-        	o.update(data);
-        }
+	void notifyAllObservers(byte[] data) {	        
+        observer.consumptionUpdate(id, (Object)data);
     }
 	
 	
@@ -37,9 +31,10 @@ public class ResourceConnector implements IResource
 		availability = true;
 	}
 
-	public boolean receiveAction(int i, String[] s) {
+	public boolean receiveAction(int i, String[] s) {		
 		
-		byte[] data = CameraAct.preview.getFoto();
+		//byte[] data = CameraAct.preview.getFoto();
+		byte[] data = {0,0};
 		notifyAllObservers(data);
 		return true;
 	}
@@ -54,7 +49,7 @@ public class ResourceConnector implements IResource
 	}
 
 	public void setObserver(IConsumptionObs observer) {
-		observers.add(observer);
+		this.observer = observer;
 		
 	}
 
