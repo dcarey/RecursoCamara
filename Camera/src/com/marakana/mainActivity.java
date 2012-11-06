@@ -23,11 +23,14 @@ public class mainActivity extends Activity {
 	        rc.setObserver(co);
 	        String[] algo = {"1","2"};
 	        
+	        if(rc.receiveAction(0, algo))
+	        {	               
 	        rc.receiveAction(0, algo);
 	        byte[] foto = co.getData();
 	        Bitmap bmp=BitmapFactory.decodeByteArray(foto,0,foto.length);
 	        ImageView image= (ImageView) findViewById(R.id.imageView1);
 	        image.setImageBitmap(bmp);
+	        }
 	    }
 
 }

@@ -17,7 +17,7 @@ public class ResourceConnector implements IResource
 
 	
 	void notifyAllObservers(byte[] data) {	        
-        observer.consumptionUpdate(id, (Object)data);
+        observer.consumptionFinished(id, (Object)data);
     }
 	
 	
@@ -33,14 +33,20 @@ public class ResourceConnector implements IResource
 
 	public boolean receiveAction(int i, String[] s) {		
 		
-		//byte[] data = CameraAct.preview.getFoto();
-		byte[] data = {0,0};
+	try{
+		byte[] data = CameraAct.preview.getFoto();
 		notifyAllObservers(data);
 		return true;
 	}
+	catch(Exception e)
+	{
+		String o = e.getMessage();
+		observer.consumptionFailed(id, o);
+		return false;
+	}
+	}
 
 	public int getStatus() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
