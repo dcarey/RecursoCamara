@@ -1,5 +1,8 @@
 package com.marakana;
 
 public interface IConsumptionObs {
-	public void update(Object obj);
+	public void consumptionFinished(int i, Object o);
+	public void consumptionFailed(int i, Object o);
+	public void consumptionInterrupted(int i, Object o);
+	
 }
